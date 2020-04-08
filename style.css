@@ -1,0 +1,19 @@
+header{
+    background:#a9ffd4;
+    padding:20px;
+}
+
+.header-box{
+    width:50%;
+    margin:0 auto;
+    position:relative;
+}
+.font_test{
+    color:#6495ed;
+}
+
+.interests{
+    width:50px;
+    margin:50px;
+    padding:50px;
+}
