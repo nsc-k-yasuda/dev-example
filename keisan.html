@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+
+            function printScreen(message){
+                document.write(message);
+                document.write('<br/>');
+            }
+
+            let number1 =parseInt(prompt('1つ目の数字を入力してください'));
+            let number2=parseInt (prompt('2つ目の数字を入力してください'));
+            console.log(number1);
+            console.log(number2);
+
+            ///let result=number1+number2;
+            ///printScreen('足し算: '+result);
+            printScreen('足し算: '+(number1+number2));
+
+            ///result=number1-number2;
+            ///printScreen('引き算: '+result);
+            printScreen('引き算: '+(number1-number2));
+
+            ///result=number1*number2;
+            ///printScreen('かけ算: '+result);
+            printScreen('かけ算: '+(number1*number2));
+
+            ///result=number1/number2;
+            ///printScreen('わり算: '+result);
+            printScreen('わり算: '+(number1/number2));
+        </script>
+
+    </body>
+
+</html>

@@ -1,49 +1,99 @@
-class Doragon (name,HP,MP,buki,) {
-    this._name=name;
-    this._HP=HP;
-    this.=MP=MP;
-    let buki=buki;
+class Character  {
+constructor(name,hp,mp){
+    this.name=name;
+    this.hp=hp;
+    this.mp=mp;  
+}
+attack(target){
+    console.log(`${this.name}が${target}に攻撃した`);
+}
 }
 
-.Yuusya{
-    name ='ヨシヒコ';
-    HP ='1000';
-    MP ='400';
-    buki='勇者の剣';    
+class Yuusya extends Character{
+    constructor(name,hp,mp,weapon){
+    super(name,hp,mp);
+    this.weapon=weapon;
+    }
+    deathblow(){
+        console.log(`${this.name}が必殺技を発動した`);
+    }
 }
 
-Yuusya.kogeki('700ダメージを与えた');
 
-.Wizard{
-    name = 'ムラサキ';
-    HP ='900';
-    MP ='600';
-    buki ='魔法の杖';
+class Wizard extends Character{
+    constructor(name,hp,mp,weapon){
+        super(name,hp,mp);
+        this.weapon=weapon;
+    }
+    castSpell(spellName,target){
+        console.log(`${this.name}が呪文を唱えた`);
+    }
 }
 
-Wizard.kogeki('400ダメージを与えた');
-Wizard.zyumon('ザキを唱えた');
 
-.Cleric{
-    name = 'ベネブ';
-    HP ='900';
-    MP ='700';
-    buki ='賢者の杖';
+class Cleric extends Character{
+    constructor(name,hp,mp,weapon){
+        super(name,hp,mp);
+        this.weapon=weapon;
+    }
+    kaifuku(spellName){
+        console.log(`${this.name}が回復魔法を唱えた`);
+    }
 }
 
-Cleric.kogeki('400ダメージを与えた');
-Cleric.zyumon('500回復');
 
-.Berseker{
-    name = 'ダンジョン';
-    HP ='900';
-    MP ='400';
-    buki ='剣士のつるぎ';
+class Berseker extends Character{
+    constructor(name,hp,mp,weapon){
+        super(name,hp,mp);
+        this.weapon=weapon;
+ }
+ hensin(){
+     console.log(`${this.name}が獣化して攻撃力30％up`);
+ }
 }
 
-Berseker.kogeki('700ダメージを与えた');
-Berseker.hensin('獣化');
+class Monster {
+    constructor(name,hp,mp){
+        this.name=name;
+        this.hp=hp;
+        this.mp=mp;
+    }
+    attack(target){
+        console.log(`${this.name}が${target}に攻撃した`);
+    }
 
-class Doragon extends teki{
-    constructor
+    runAway(){
+        console.log(`${this.name}は逃げ出した`);
+    }
+}
+
+class slime extends Monster {
+    constructor(name,hp,mp,weapon){
+        super(name,hp,mp);
+        this.weapon=weapon;
+    }
+    bunretu(){
+        console.log(`${this.name}は分裂した`);
+    }
+}
+
+class Ork extends Monster{
+    constructor(name,hp,mp,weapon){
+        super(name,hp,mp);
+        this.weapon=weapon;
+    }
+    ferocity(){
+        console.log(`${this.name}が狂暴化して攻撃力10%up`);
+    }
+}
+
+class LastBoss extends Monster{
+    constructor(name,hp,mp,weapon){
+        super(name,hp,mp);
+        this.weapon=weapon;
+    }
+    runAway(){}
+    revive(){
+        console.log(`${this.name}はよみがえった`);
+    }
 }

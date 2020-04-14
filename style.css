@@ -17,3 +17,16 @@ header{
     margin:50px;
     padding:50px;
 }
+
+.interests li{
+    border-color:#7fffd4;
+    border-width: 90px;
+    border-style: inset;
+    border-radius: 100px;
+}
+
+.interests li:hover{
+    border-color:#008080;
+}
+
+.a{text-decoration: none;}
