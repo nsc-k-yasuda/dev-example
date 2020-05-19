@@ -1,32 +1,46 @@
-header{
-    background:#a9ffd4;
-    padding:20px;
+body{
+    background-color:#EEEEEE;
 }
 
-.header-box{
-    width:50%;
-    margin:0 auto;
-    position:relative;
-}
-.font_test{
-    color:#6495ed;
-}
-
-.interests{
-    width:50px;
-    margin:50px;
-    padding:50px;
+li{
+    background:#fff;
+    padding:10px 0;
+    border:none;
+    border-bottom:1px solid #ddd;
+    overflow-wrap: anywhere;
 }
 
-.interests li{
-    border-color:#7fffd4;
-    border-width: 90px;
-    border-style: inset;
-    border-radius: 100px;
+li:last-child{
+    border-bottom:none;
 }
 
-.interests li:hover{
-    border-color:#008080;
+input[type="checkbox"] {
+    display: inline-block;
+    margin-right: 10px;
 }
 
-.a{text-decoration: none;}
+.todolist{
+    background-color:#FFF;
+    padding:20px 20px 10px 20px;
+    margin-top:30px;
+}
+.todolist h1{
+    margin:0;
+    padding-bottom:20px;
+    text-align:center;
+}
+.form-control{
+    border-radius:0;
+}
+
+.todo-footer{
+    background-color:#F4FCE8;
+    margin:0 -20px -10px -20px;
+    padding: 10px 20px;
+}
+.done-item{
+    text-decoration:line-through;
+}
+#checkAll{
+    margin-top:10px;
+}
