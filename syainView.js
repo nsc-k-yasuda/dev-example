@@ -1,12 +1,17 @@
-
-class DoneView extends BaseView {
+class SyainView extends BaseView {
 
     constructor(element) {
         super(element);
     }
 
     template(syain) {
-        return ``;
+        return `<tr class="syain">
+        <td>${syain.id}</td>
+        <td>${syain.firstName}</td>
+        <td>${syain.name}</td>
+        <td>${syain.phoneNumber}</td>
+        <td>${syain.mail}</td>
+      </tr>`
     }
 
     update(syainList) {

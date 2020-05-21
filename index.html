@@ -1,61 +1,130 @@
+<!DOCTYPE html>
 <html>
 
 <head>
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="style.css" />
 
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <title>Todo App</title>
+  <title>社員管理システム</title>
 </head>
 
 <body>
+  <header>
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="todolist not-done">
-                    <h1>Todos</h1>
-                    <input type="text" class="form-control add-todo" placeholder="Add todo">
-                    <button id="checkAll" class="btn btn-success" onclick="todoController.allDone()">Mark all as
-                        done</button>
-
-                    <hr>
-
-                    <ul id="sortable" class="list-unstyled"></ul>
-                    <div class="todo-footer">
-                        <strong><span class="count-todos"></span></strong> Items Left
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="todolist">
-                    <h1>Already Done</h1>
-                    <span class="glyphicon glyphicon-trash"></span>
-                    <ul id="done-items" class="list-unstyled done-item"></ul>
-                </div>
-            </div>
-        </div>
+      <h2 class="title">社員管理システム</h2>
     </div>
+  </header>
 
-    <script src="app/utils/Utils.js"></script>
-    <script src="app/model/Todo.js"></script>
-    <script src="app/model/BaseList.js"></script>
-    <script src="app/model/TodoList.js"></script>
-    <script src="app/model/DoneList.js"></script>
+  <main>
+    <!--表示部分-->
+    <section class="container">
+      <!-- テーブルクリア -->
+      <table>
+        <thead>
+          <tr>
+            リスト
+          </tr>
 
-    <script src="app/view/BaseView.js"></script>
-    <script src="app/view/TodoView.js"></script>
-    <script src="app/view/DoneView.js"></script>
+          <th>社員番号</th>
+          <th>苗字</th>
+          <th>名前</th>
+          <th>電話番号</th>
+          <th>Eメール</th>
+        </thead>
 
-    <script src="app/service/ConnectionFactory.js"></script>
-    <script src="app/dao/TodoDao.js"></script>
-    <script src="app/controller/TodoController.js"></script>
-    <script>
-        let todoController = new TodoController();
-    </script>
+        <tbody class="syainList">
+          <tr class="syain">
+            <td>100</td>
+            <td>三重　</td>
+            <td>津</td>
+            <td>0120111</td>
+            <td>mie@co.jp</td>
+          </tr>
+          <tr class="syain">
+            <td>101</td>
+            <td>愛知</td>
+            <td>名古屋</td>
+            <td>0120222</td>
+            <td>aichi@co.jp</td>
+          </tr>
+          <tr class="syain">
+            <td>102</td>
+            <td>岐阜</td>
+            <td>岐阜</td>
+            <td>0120333</td>
+            <td>gifu@co.jp</td>
+            </tr> 
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+
+  <!-- データ入力フォーム -->
+  <section class="container">
+    <h2　id="form-title">社員情報の追加</h2>
+    <form id="syain-form" onSubmit="syainController.addSyain(event);">
+
+      <!---div class="group">
+        <label for="color">色を選択してください</label>
+        <input id="color" name="color" type="color" placeholder="色" class="colorfield" />
+      </div-->
+
+      <div class="group">
+        <label for="number">社員番号</label>
+        <input id="number" name="number" type="number" placeholder="社員番号" class="field" />
+      </div>
+
+      <div class="group">
+        <label for="firstName">苗字</label>
+        <input id="firstName" name="firstName" type="text" placeholder="苗字" class="field" />
+      </div>
+
+      <div class="group">
+        <label for="name">名前</label>
+        <input id="name" name="name" type="text" placeholder="名前" class="field" />
+      </div>
+
+      <div class="group">
+        <label for="phoneNumber">電話番号</label>
+        <input id="phoneNumber" name="phoneNumber" type="number" placeholder="電話番号" class="field" />
+      </div>
+
+      <div class="group">
+        <label for="mail">Eメール</label>
+        <input id="mail" name="mail" type="text" placeholder="Eメール" class="field" />
+      </div>
+
+      <button id="add-syain" 　class="button btn-main" type="submit">追加</button>
+      <button id="delete-syain" onclick="syainController.deleteItem(itemId)">削除</button>
+      <!-- <button id="clear-ito" onclick="itoController.clearIto(event)">削除する</button> -->
+    </form>
+  </section>
+  
+  </section>
+  <!-- ボタンで押した内容をスクリプトに渡す -->
+  <script src="controller/syainController.js"></script>
+  <script src="dao/syainDao.js"></script>
+  <script src="service/ConnectionFactory.js"></script>
+  <script src="view/BaseView.js"></script>
+  <script src="view/DoneView.js"></script>
+  <script src="view/syainView.js"></script>
+  <script src="model/syain.js"></script>
+  <script src="model/baseList.js"></script>
+  <script src="model/syainList.js"></script>
+
+  <script>
+    var syainController = new SyainController();
+  </script>
+  
+  <footer class="container"></footer>
+
+  <nav>
+    　<ul>
+    　　<li><a href="about.html">社員データ編集ページ</a></li>
+    　</ul>
+    </nav>
+
 </body>
 
 </html>

@@ -1,46 +1,165 @@
+*{
+    box-sizing: border-box;
+ }
+ 
 body{
-    background-color:#EEEEEE;
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-size: 14px;
 }
-
-li{
-    background:#fff;
-    padding:10px 0;
-    border:none;
-    border-bottom:1px solid #ddd;
-    overflow-wrap: anywhere;
+ 
+header{
+    background-color: #333;
+    height: 5em;
+    color: #FFF;
+    margin-bottom: 1em;
 }
-
-li:last-child{
-    border-bottom:none;
+ 
+header h1{
+    font-size: 2em;
+    display:inline-block;
+    vertical-align: middle;
 }
-
-input[type="checkbox"] {
+header h2{
+    font-size: 2em;
+    display:inline-block;
+    vertical-align: middle;
+}
+ 
+header .container:before{
+    content: '';
+    display:inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+ 
+.container{
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+}
+ 
+section{
+    margin: 2em 0;
+    overflow: hidden;
+}
+ 
+section h2{
+    font-size: 3em;
+    display: block;
+    padding-bottom: .5em;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: .5em;
+}
+ 
+table{
+    width: 100%;
+    margin-bottom : .5em;
+    table-layout: fixed;
+ 
+}
+ 
+td, th {
+    padding: .7em;
+    margin: 0;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+ 
+th{
+    font-weight: bold;
+    background-color: #EEE;
+}
+ 
+label{
+    color: #555;
+    display: block;
+    margin-bottom: .2em;
+}
+ 
+.field{
+    margin: 0;
+    padding-bottom: 1em;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: .7em;
+    width: 100%;
+}
+ 
+.color-field{
+    margin: 0;
+    /* padding-bottom: 1em; */
+    height: 30px;
+    width: 100%;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+ 
+.group{
+    width: 30%;
     display: inline-block;
-    margin-right: 10px;
+    padding: 10px 0px;
+}
+ 
+button{
+    padding: .5em 2em;
+    border: 0;
+    border-bottom: 3px solid;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0;
+    margin-top: -3px;
+    color: #fff;
+    background-color:#08a9ff;
+    border-color: #04324c;
+    width: 20%;
+    display: block;
+    clear: both;
+    margin: 10px 0px;
+ 
+}
+ 
+button:active{
+    margin-top:0px;
+    border: 0;
+}
+ 
+button[disabled=disabled], button:disabled {
+    background-color: gray;
+    border-color: darkgray;
+ 
 }
 
-.todolist{
-    background-color:#FFF;
-    padding:20px 20px 10px 20px;
-    margin-top:30px;
+#clear-ito{
+    align-content: right;
 }
-.todolist h1{
-    margin:0;
-    padding-bottom:20px;
-    text-align:center;
+ 
+.adicionar-paciente{
+    margin-top: 30px;
 }
-.form-control{
-    border-radius:0;
+ 
+.campo-invalido{
+    border: 1px solid red;
 }
-
-.todo-footer{
-    background-color:#F4FCE8;
-    margin:0 -20px -10px -20px;
-    padding: 10px 20px;
+ 
+.paciente-invalido {
+    background-color: lightcoral;
 }
-.done-item{
-    text-decoration:line-through;
+ 
+#mensagens-erro {
+    color: red;
 }
-#checkAll{
-    margin-top:10px;
+ 
+.fadeOut {
+    opacity: 0;
+    transition: 0.5s;
+}
+ 
+#filtrar-tabela {
+    width: 200px;
+    height: 35px;
+    margin-bottom: 10px;
+}
+ 
+.invisivel {
+    display: none;
 }

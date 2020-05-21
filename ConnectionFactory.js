@@ -1,75 +1,85 @@
-const ConnectionFactory=(function(){
-    //DBサイズ
-    const dbSize=1024*1024*2;
-    //DBの名前
-    const dbName='todo.db';
-    //DBの表示名
-    const dbDisplayName='TodosDB';
-    //DBのバージョン
-    const dbVersion='1';
-    //データベースとの接続を保持しておく
-    let connection=null;
+const ConnectionFactory= (function(){
 
-    //データベースとの接続を用意してくれるクラス
+    // DBサイズ
+    const dbSize = 1024*1024*2;
+    // DBの名前
+    const dbName = "a.db";
+    // DBの表示名
+    const dbDisplayName = 'syain';
+    // DBのバージョン
+    const dbVersion = "1";
+
+    // データーベースとの接続を保持しておく
+    let connection = null;
+
+
+    // データーベースとの接続を用意してくれるクラス
     return class ConnectionFactory{
-        //コンストラクターこいつは直接呼べないようにする
-        //外から呼べるようにしてしまうとデータベースとの接続が同時に複数作られる可能性がある
-        constructor(){
-            throw new Error('Can not create an instance of ConnectionFactory');
-        }
-        //データベースに接続するメソッド
-        static getConnection(){
-            return new Promise((resolve,reject)=>{
-                try{
-                    //ここでエラーがでたら
 
-                    //データベースを開く
+        // コンストラクター直接呼べないようにする
+        // 外から呼べるようにしてしまうとデーターベースとの接続が同時に複数作られる可能性がある
+        constructor(){
+            throw new Error("can not create an instance of ConnectionFactory");
+        }
+
+        static getConnection(){
+            return new Promise((resolve,reject) => {
+                try {
+                    // ここでエラーが出たら
+                    // データベースを開く
                     connection = openDatabase(
-                        //名前
+                        // 名前
                         dbName,
-                        //バージョン
+                        // バージョン
                         dbVersion,
-                        //表示する名前
+                        // 表示する名前
                         dbDisplayName,
-                        //DBサイズ
+                        // DBサイズ
                         dbSize
                     );
                     ConnectionFactory._migrateDb()
                         .then(resolve(connection))
-                        .catch(error =>{
+                        .catch(error => {
                             console.log(error);
                             reject(error);
                         });
-                    
+
                 }catch(error){
-                    //ここでエラーを処理
+                    // ここでエラーを処理する
                     console.log(error);
                     reject(error);
                 }
             });
         }
-        //DBテーブルの作成・更新などを行う
+        // DBのテーブルの作成・更新などを行う
         static _migrateDb(){
-            return new Promise((resolve,reject)=>{
-                //SQLコマンドを保持する
-                let sql='CREATE TABLE IF NOT EXISTS todo(\
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,\
+            return new Promise((resolve,reject) => {
+                // sqlコマンドを保存する
+                let sql = "CREATE TABLE IF NOT EXISTS syain(\
+                    id INTEGER PRIMARY KEY,\
+                    firstName TEXT,\
                     name TEXT,\
-                    status INTEGER DEFAULT 0);';
+                    phoneNumber INTEGER,\
+                    mail TEXT\
+                );";
                 
+                
+                // トランザクションを開く
+                connection.transaction(tx => {
 
-
-                connection.transaction(tx =>{
-                    //指定したSQLを実行する
+                    // 指定したSQLを実行する
                     tx.executeSql(
-                        //SQLパラメーター
+                        // SQLコマンド
                         sql,
-                        //パラメーター
+
+                        // パラメーター
                         [],
-                        //成功したとき
-                        (tx,result)=>resolve(),
-                        //失敗したとき
-                        (tx,error)=>reject(error)
+
+                        // 成功したとき
+                        (tx,result) => resolve(),
+
+                        // 失敗したとき
+                        (tx,error) => reject(error)
 
                     )
                 });
